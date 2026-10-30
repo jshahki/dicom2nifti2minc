@@ -27,7 +27,7 @@ Then run the following:
 
 cd /scratch/st-toddwood-1/$USER/dicom2nifti2minc
 
-source ./code/dicom2nifti2minc_setup.sh
+bash ./code/dicom2nifti2minc_setup.sh
 
 ```
 
