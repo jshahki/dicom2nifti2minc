@@ -23,7 +23,7 @@ MINC_NIfTI2MINC="/opt/minc/${MINC_VERSION}/bin/nifti2minc"
 # dcm2niix download
 DCM2NIIX="$TOOLS_DIR/dcm2niix"
 DCM2NIIX_ARCHIVE="$TOOLS_DIR/dcm2niix_lnx.zip"
-DCM2NIIX_URL="https://github.com/rordenlab/dcm2niix/releases/latest/download/dcm2niix_lnx.zip"
+DCM2NIIX_URL="https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20261029.zip"
 
 # Apptainer cache and temporary build directory
 APPTAINER_CACHE="$CACHE_DIR/apptainer"
