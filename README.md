@@ -35,6 +35,33 @@ Please ensure to keep the Terminal window open while this process completes.
 
 ## Converting scans from DICOM to NIfTI
 
+After completing the software setup step, you can upload your data into the `/data` folder. Please create a new folder within `/data` for each subject you want to run. In each subjects' folder, place a single `.zip` folder containing the DICOM scans. Then, add your subjects that you would like to run in the `participants.tsv` list. Note that there isn't a required naming format, but just make sure that the name of the subject folders match with the name in the `participant.tsv` file. As well, make sure that there are no spaces in any of the subject/folder names.
+
+For instance, your `/data` folder could look like this after uploading:
+
+```
+main_dicom2nifti2minc_directory
+├──data
+│   ├──participants.tsv
+│   ├──sub-c01
+│   │   └──SUBJECTC01.zip
+│   ├──sub-c02
+│   │   ├──SUBJECTC02.zip
+│   └──sub-c03
+│       └──SUBJECTC03.zip
+```
+
+And your corresponding `participants.tsv` file would look like the following:
+
+```
+participant_id
+sub-c01
+sub-c02
+sub-c03
+```
+
+## Converting scans from DICOM to NIfTI
+
 After uploading your data and listing your to-be-converted subjects in the participants.tsv file, please run the following code in the Terminal window:
 
 ```sh
