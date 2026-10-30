@@ -88,6 +88,7 @@ apptainer --version
 export APPTAINER_CACHEDIR="$APPTAINER_CACHE"
 export APPTAINER_TMPDIR="$APPTAINER_TMP"
 
+
 # ==================================================
 # INSTALL DCM2NIIX
 # ==================================================
@@ -97,34 +98,44 @@ echo "=========================================="
 echo "STAGE 1: DCM2NIIX"
 echo "=========================================="
 
-if [[ -x "$TOOLS_DIR/dcm2niix" ]]; then
+# Check whether dcm2niix exists in the other project.
+EXISTING_DCM2NIIX="/scratch/st-toddwood-1/$USER/dicom2nifti2minc/tools/dcm2niix"
 
-    echo "Existing dcm2niix executable found."
-    echo "Verifying installation..."
+if [[ -x "$DCM2NIIX" ]]; then
 
-    "$TOOLS_DIR/dcm2niix" -h
+    echo "Existing dcm2niix found in current repository."
+    echo "Reusing: $DCM2NIIX"
+
+elif [[ -x "$EXISTING_DCM2NIIX" ]]; then
+
+    echo "Reusing dcm2niix from existing project."
+    cp "$EXISTING_DCM2NIIX" "$DCM2NIIX"
+    chmod +x "$DCM2NIIX"
 
 else
 
-    echo "Downloading dcm2niix..."
-    curl -fL --retry 3 "$DCM2NIIX_URL" -o "$DCM2NIIX_ARCHIVE"
+    echo "dcm2niix not found locally. Downloading..."
+
+    curl -fL --retry 3 "$DCM2NIIX_URL" \
+        -o "$DCM2NIIX_ARCHIVE"
 
     echo "Extracting dcm2niix..."
     unzip -o "$DCM2NIIX_ARCHIVE" -d "$TOOLS_DIR"
 
-    if [[ ! -f "$TOOLS_DIR/dcm2niix" ]]; then
-        echo "ERROR: dcm2niix was not found after extraction."
+    if [[ ! -f "$DCM2NIIX" ]]; then
+        echo "ERROR: dcm2niix executable not found."
         exit 1
     fi
 
-    chmod +x "$TOOLS_DIR/dcm2niix"
-
-    echo "Verifying dcm2niix..."
-    "$TOOLS_DIR/dcm2niix" -h
+    chmod +x "$DCM2NIIX"
 
 fi
 
-echo "dcm2niix is ready: $TOOLS_DIR/dcm2niix"
+echo "Verifying dcm2niix..."
+
+"$DCM2NIIX" -h
+
+echo "dcm2niix ready: $DCM2NIIX"
 
 # ==================================================
 # INSTALL MINC TOOLKIT CONTAINER
