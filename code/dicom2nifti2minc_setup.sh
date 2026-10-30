@@ -21,6 +21,7 @@ MINC_DOWNLOAD_URL="docker://nistmni/minc-toolkit:${MINC_VERSION}"
 MINC_NIfTI2MINC="/opt/minc/${MINC_VERSION}/bin/nifti2minc"
 
 # dcm2niix download
+DCM2NIIX="$TOOLS_DIR/dcm2niix"
 DCM2NIIX_ARCHIVE="$TOOLS_DIR/dcm2niix_lnx.zip"
 DCM2NIIX_URL="https://github.com/rordenlab/dcm2niix/releases/latest/download/dcm2niix_lnx.zip"
 
