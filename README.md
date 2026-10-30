@@ -33,7 +33,7 @@ bash ./code/dicom2nifti2minc_setup.sh
 
 Please ensure to keep the Terminal window open while this process completes.
 
-## Converting scans from DICOM to NIfTI
+## Upload your subjects' DICOM data
 
 After completing the software setup step, you can upload your data into the `/data` folder. Please create a new folder within `/data` for each subject you want to run. In each subjects' folder, place a single `.zip` folder containing the DICOM scans. Then, add your subjects that you would like to run in the `participants.tsv` list. Note that there isn't a required naming format, but just make sure that the name of the subject folders match with the name in the `participant.tsv` file. As well, make sure that there are no spaces in any of the subject/folder names.
 
