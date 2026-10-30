@@ -18,7 +18,7 @@ CACHE_DIR="$REPO_DIR/cache"
 MINC_VERSION="1.9.18"
 MINC_IMAGE="$TOOLS_DIR/minc-toolkit_${MINC_VERSION}.sif"
 MINC_DOWNLOAD_URL="docker://nistmni/minc-toolkit:${MINC_VERSION}"
-MINC_NIfTI2MINC="/opt/minc/${MINC_VERSION}/bin/nifti2minc"
+MINC_NIfTI2MINC="/opt/minc/${MINC_VERSION}/bin/nii2mnc"
 
 # dcm2niix download
 DCM2NIIX="$TOOLS_DIR/dcm2niix"
